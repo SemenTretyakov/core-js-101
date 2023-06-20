@@ -33,7 +33,9 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T16:07:37+00:00'    => Date()
  *    '2016-01-19T08:07:37Z' => Date()
  */
-function parseDataFromIso8601(value) {}
+function parseDataFromIso8601(/* value */) {
+  throw new Error('Not implemented');
+}
 
 /**
  * Returns true if specified date is leap year and false otherwise

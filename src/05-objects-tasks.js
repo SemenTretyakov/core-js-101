@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 /* eslint-disable func-names */
 /* ************************************************************************************************
  *                                                                                                *
@@ -114,39 +115,54 @@ function fromJSON(proto, json) {
  *  For more examples see unit tests.
  */
 
-const cssSelectorBuilder = {
-  element(/* value */) {
-    throw new Error('Not implemented');
-  },
+// class CssSelectorBuilder {
+//   constructor() {
+//     this.selectors = [];
+//   }
 
-  id(/* value */) {
-    throw new Error('Not implemented');
-  },
+//   element(value) {
+//     return this.addSelector(value);
+//   }
 
-  class(/* value */) {
-    throw new Error('Not implemented');
-  },
+//   id(value) {
+//     return this.addSelector(`#${value}`);
+//   }
 
-  attr(/* value */) {
-    throw new Error('Not implemented');
-  },
+//   class(value) {
+//     return this.addSelector(`.${value}`);
+//   }
 
-  pseudoClass(/* value */) {
-    throw new Error('Not implemented');
-  },
+//   attr(value) {
+//     return this.addSelector(`[${value}]`);
+//   }
 
-  pseudoElement(/* value */) {
-    throw new Error('Not implemented');
-  },
+//   pseudoClass(value) {
+//     return this.addSelector(`:${value}`);
+//   }
 
-  combine(/* selector1, combinator, selector2 */) {
-    throw new Error('Not implemented');
-  },
-};
+//   pseudoElement(value) {
+//     return this.addSelector(`::${value}`);
+//   }
+
+//   combine(selector1, combinator, selector2) {
+//     const combinedSelector = `${selector1.stringify()} ${combinator} ${selector2.stringify()}`;
+//     return this.addSelector(combinedSelector);
+//   }
+
+//   stringify() {
+//     return this.selectors.join('');
+//   }
+
+//   addSelector(selector) {
+//     const builder = new CssSelectorBuilder();
+//     builder.selectors = [...this.selectors, selector];
+//     return builder;
+//   }
+// }
 
 module.exports = {
   Rectangle,
   getJSON,
   fromJSON,
-  cssSelectorBuilder,
+  // CssSelectorBuilder,
 };
