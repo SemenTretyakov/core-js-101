@@ -115,54 +115,45 @@ function fromJSON(proto, json) {
  *  For more examples see unit tests.
  */
 
-// class CssSelectorBuilder {
-//   constructor() {
-//     this.selectors = [];
-//   }
-
-//   element(value) {
-//     return this.addSelector(value);
-//   }
-
-//   id(value) {
-//     return this.addSelector(`#${value}`);
-//   }
-
-//   class(value) {
-//     return this.addSelector(`.${value}`);
-//   }
-
-//   attr(value) {
-//     return this.addSelector(`[${value}]`);
-//   }
-
-//   pseudoClass(value) {
-//     return this.addSelector(`:${value}`);
-//   }
-
-//   pseudoElement(value) {
-//     return this.addSelector(`::${value}`);
-//   }
-
-//   combine(selector1, combinator, selector2) {
-//     const combinedSelector = `${selector1.stringify()} ${combinator} ${selector2.stringify()}`;
-//     return this.addSelector(combinedSelector);
-//   }
-
-//   stringify() {
-//     return this.selectors.join('');
-//   }
-
-//   addSelector(selector) {
-//     const builder = new CssSelectorBuilder();
-//     builder.selectors = [...this.selectors, selector];
-//     return builder;
-//   }
-// }
+class cssSelectorBuilder {
+  //   constructor() {
+  //     this.selectors = [];
+  //   }
+  //   element(value) {
+  //     return this.addSelector(value);
+  //   }
+  //   id(value) {
+  //     return this.addSelector(`#${value}`);
+  //   }
+  //   class(value) {
+  //     return this.addSelector(`.${value}`);
+  //   }
+  //   attr(value) {
+  //     return this.addSelector(`[${value}]`);
+  //   }
+  //   pseudoClass(value) {
+  //     return this.addSelector(`:${value}`);
+  //   }
+  //   pseudoElement(value) {
+  //     return this.addSelector(`::${value}`);
+  //   }
+  //   combine(selector1, combinator, selector2) {
+  //     const combinedSelector = `${selector1.stringify()} ${combinator} ${selector2.stringify()}`;
+  //     return this.addSelector(combinedSelector);
+  //   }
+  //   stringify() {
+  //     return this.selectors.join('');
+  //   }
+  //   addSelector(selector) {
+  //     const builder = new cssSelectorBuilder();
+  //     builder.selectors = [...this.selectors, selector];
+  //     return builder;
+  //   }
+}
 
 module.exports = {
   Rectangle,
   getJSON,
   fromJSON,
-  // CssSelectorBuilder,
+  cssSelectorBuilder,
 };
