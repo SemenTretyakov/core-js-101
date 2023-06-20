@@ -1,3 +1,7 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-console */
+/* eslint-disable no-await-in-loop */
 /* eslint-disable import/newline-after-import */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable comma-dangle */
@@ -65,9 +69,8 @@ function willYouMarryMe(isPositiveAnswer) {
  */
 
 function processAllPromises(array) {
-  return Promise.all(array).then((results) => results.map((value) => value));
+  return Promise.all(array);
 }
-
 /**
  * Return Promise object that should be resolved with value received from
  * Promise object that will be resolved first.
@@ -87,8 +90,8 @@ function processAllPromises(array) {
  *    })
  *
  */
-function getFastestPromise(/* array */) {
-  throw new Error('Not implemented');
+function getFastestPromise(array) {
+  return Promise.race(array);
 }
 
 /**
@@ -108,8 +111,16 @@ function getFastestPromise(/* array */) {
  *    });
  *
  */
-function chainPromises(/* array, action */) {
-  throw new Error('Not implemented');
+function chainPromises(array, action) {
+  return array.reduce((previousPromise, currentPromise) => {
+    return previousPromise
+      .then((previousValue) => {
+        return currentPromise.then((currentValue) => {
+          return action(previousValue, currentValue);
+        });
+      })
+      .catch(() => {}); // Handle rejections and ignore them
+  });
 }
 
 module.exports = {
