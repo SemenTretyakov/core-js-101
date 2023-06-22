@@ -1,3 +1,12 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable one-var */
+/* eslint-disable one-var-declaration-per-line */
+/* eslint-disable radix */
+/* eslint-disable comma-spacing */
+/* eslint-disable arrow-body-style */
+/* eslint-disable operator-linebreak */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-undef */
 /* eslint-disable no-empty */
@@ -217,8 +226,26 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let start, end;
+
+  if (a < b) {
+    start = a;
+    end = b;
+  } else {
+    start = b;
+    end = a;
+  }
+
+  if (isStartIncluded === true && isEndIncluded === true) {
+    return `[${start}, ${end}]`;
+  } else if (isStartIncluded === true && isEndIncluded === false) {
+    return `[${start}, ${end})`;
+  } else if (isStartIncluded === false && isEndIncluded === true) {
+    return `(${start}, ${end}]`;
+  } else {
+    return `(${start}, ${end})`;
+  }
 }
 
 /**
@@ -233,8 +260,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 /**
@@ -249,8 +276,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return Number(num.toString().split('').reverse().join(''));
 }
 
 /**
@@ -273,8 +300,24 @@ function reverseInteger(/* num */) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  let ccnStr = ccn.toString();
+  ccnStr = ccnStr.replace(/\D/g, '');
+  let sum = 0;
+  let double = false;
+  for (let i = ccnStr.length - 1; i >= 0; i--) {
+    let digit = parseInt(ccnStr.charAt(i));
+    if (double) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+    sum += digit;
+    double = !double;
+  }
+
+  return sum % 10 === 0;
 }
 
 /**
@@ -340,8 +383,19 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  if (num === 0) {
+    return '0';
+  }
+
+  let result = '';
+
+  while (num > 0) {
+    result = (num % n) + result;
+    num = Math.floor(num / n);
+  }
+
+  return result;
 }
 
 /**
