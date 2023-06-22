@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-param-reassign */
 /* *********************************************************************************************
@@ -44,8 +45,11 @@ function getComposition(/* f, g */) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  const exponentiation = (a) => {
+    return a ** exponent;
+  };
+  return exponentiation;
 }
 
 /**
